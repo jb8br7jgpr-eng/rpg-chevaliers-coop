@@ -1,0 +1,883 @@
+RPG MÉDIÉVAL-FANTASTIQUE COOPÉRATIF À DEUX
+============================================================
+DOCUMENT DE RÉFÉRENCE COMPLET — VERSION 1.0
+État des décisions : 15 octobre 2026
+Statut : CONCEPTION DES RÈGLES ; PAS ENCORE UN JEU CODÉ
+
+OBJET DU DOCUMENT
+-----------------
+Ce document est la source de vérité pour reprendre le projet dans une
+nouvelle conversation ou démarrer son développement sans perdre les
+arbitrages déjà pris. Toutes les règles mentionnées comme « VALIDÉES »
+sont des décisions du projet. Les idées non tranchées sont regroupées
+en fin de document et ne doivent pas être considérées comme acquises.
+Les exemples servent seulement d'illustrations, sauf mention contraire.
+
+RÉSUMÉ EXÉCUTIF
+---------------
+- Jeu dark fantasy / médiéval-fantastique coopératif pour EXACTEMENT DEUX
+  joueurs incarnant deux chevaliers. Ils voyagent ENSEMBLE.
+- Chaque partie est une expédition indépendante, commencée dans une ville
+  centrale et terminée par la découverte et récupération d'un trésor.
+- Une région commune, environ dix destinations/lieux de quête envisagés ;
+  la taverne offre trois quêtes/destinations aléatoires, les deux joueurs
+  en choisissent une ensemble.
+- 9 à 12 étapes PRINCIPALES, réparties en trois actes équilibrés et
+  invisibles ; des étapes facultatives peuvent rallonger la partie.
+- Chaque chevalier répartit 120 points de départ entre Attaque, Défense,
+  Vitesse, avec 20 à 60 par statistique ; plafond effectif 100.
+- Trois cœurs initiaux par chevalier ; maximum cinq ; perte du dernier
+  cœur d'un des deux = Game Over pour le duo, après éventuel jet de
+  sauvegarde de Vitesse.
+- Huit compétences possibles ; une apprise au départ par chevalier,
+  maximum trois compétences par chevalier.
+- Combat simple : chaque chevalier lance D20 + floor((ATK+DEF)/20),
+  comparer le MEILLEUR des deux au jet équivalent de l'ennemi ; égalité
+  relancée. Le perdant du duel côté joueurs est désigné AVANT le lancer.
+- 3 ou 4 combats ordinaires planifiés (50/50), répartition 1 / 1 ou 2 / 1
+  par acte, séparés par au moins une étape principale sans combat
+  planifié. Des combats BONUS s'y ajoutent.
+- Les ennemis ordinaires ont des bonus +4/+5 (30 %), +6/+7 (50 %),
+  +8/+9 (20 %). Les boss ont +8 ou +9 selon leur nature et demandent
+  exactement trois succès d'attaque pour être vaincus.
+- Finale : 70 % boss, 30 % énigme ; ce n'est qu'après cette épreuve ET la
+  récupération réelle du trésor que les joueurs remportent l'expédition.
+- Trois indices narratifs garantis orientent les routes et permettent,
+  en les croisant, de déduire la cachette finale ; un à deux indices
+  facultatifs supplémentaires ; journal complet, automatique et filtrable.
+- Grandes bifurcations de navigation : 2 ou 3 par expédition (50/50),
+  chacune à 2 ou 3 routes (50/50). Une seule route correcte ; toute
+  erreur entraîne un détour supplémentaire, puis retour au carrefour.
+- Boutique initiale avec 200 pièces d'or communes ; un marchand garanti
+  en cours d'expédition et, avec probabilité 50 %, un autre marchand.
+
+============================================================
+01. PÉRIMÈTRE, AMBIANCE, OBJECTIF ET STRUCTURE (VALIDÉ)
+============================================================
+01.1 Ambiance et nature du jeu
+- Univers médiéval-fantastique à tonalité sombre (dark fantasy), deux
+  chevaliers, ruines, forêts, grottes, cryptes, montagnes, châteaux,
+  personnages non joueurs et trésors anciens.
+- Les deux joueurs doivent coopérer et discuter de leurs actions.
+- Il ne s'agit pas d'un jeu de magie ou de sorts lancés par les
+  chevaliers. Aucun système de magie, de points de vie numériques ou de
+  tour par tour classique n'a été retenu.
+- Objectif initial de durée envisagé au tout début : environ 30 à
+  60 minutes par aventure ; c'est un SOUHAIT INITIAL NON TESTÉ, pas une
+  durée garantie compte tenu des détours possibles.
+- Pour l'instant, le projet est au stade de conception : aucun code,
+  moteur, technologie, hébergement, interface en ligne ou mode réseau
+  n'est définitivement choisi pour ce RPG.
+
+01.2 Monde et début de partie
+- Une grande région avec une ville principale servant de point de départ.
+- Environ dix destinations/lieux de quête sont envisagés dans cette
+  région ; leurs noms et leur liste restent à écrire.
+- Les joueurs démarrent CHAQUE partie dans la ville et disposent d'une
+  bourse COMMUNE de 200 pièces d'or pour préparer leurs chevaliers.
+- Ils peuvent s'équiper dans la boutique de départ.
+- À la taverne, trois quêtes/destinations sont tirées au hasard parmi un
+  ensemble d'environ dix ; les joueurs choisissent leur expédition.
+- Une expédition et son trésor constituent UNE PARTIE COMPLÈTE.
+- Pas de retour en ville pendant une expédition. Les achats en route
+  passent par les marchands rencontrés.
+- Une nouvelle partie recommence une nouvelle expédition avec nouvelle
+  préparation ; pas de progression persistante validée entre parties.
+
+01.3 Déplacement et coopération
+- Les deux chevaliers se déplacent et explorent TOUJOURS ENSEMBLE ;
+  ils ne se séparent pas pour explorer deux lieux simultanément.
+- Les choix de destination, de route, de recherche, de dépense de la
+  bourse, de cible exposée, d'attribution de récompense et d'équipement
+  sont pris en coopération.
+- La narration présente de vrais choix de chemins et d'événements.
+- Une carte à destinations avec points visibles pour les deux joueurs
+  avait été évoquée au début ; les modalités exactes d'interface et de
+  carte restent à préciser. Elle n'autorise pas la séparation des héros.
+
+01.4 Étapes et actes
+- Chaque expédition comporte 9 à 12 étapes PRINCIPALES, nombre
+  variable aléatoirement selon l'aventure.
+- En arrière-plan, les étapes principales forment TROIS ACTES de
+  longueur approximativement égale. Découpages possibles :
+    9 étapes : 3 / 3 / 3 ;
+   10 étapes : environ 3 / 4 / 3 ;
+   11 étapes : environ 3 / 4 / 4 (ou répartition comparable) ;
+   12 étapes : 4 / 4 / 4.
+- Les actes sont TOTALEMENT INVISIBLES : ni annonces « Acte I/II/III »,
+  ni titres de transition, ni compteur de changement d'acte.
+- Les étapes supplémentaires provenant des détours, des mauvaises
+  routes et de Pistage ne font PAS partie des 9 à 12 étapes principales.
+- Le jeu alterne combats, enquêtes, salles fouillables, dialogues, PNJ,
+  marchands, indices, révélations et choix de route.
+
+01.5 Barre de progression
+- Une barre APPROXIMATIVE d'avancement vers le dénouement est visible.
+- Ni compteur d'étapes (« 6/11 »), ni nombre exact d'étapes restantes.
+- SEULES les étapes PRINCIPALES font avancer cette barre.
+- Tous les détours facultatifs et pistes de Pistage n'avancent PAS la
+  barre, même s'ils contiennent des combats, indices ou récompenses.
+- Cette barre ne doit pas dévoiler avec précision l'instant de la finale.
+
+============================================================
+02. CHEVALIERS, STATISTIQUES ET CŒURS (VALIDÉ)
+============================================================
+02.1 Caractéristiques
+Chaque chevalier possède exactement trois statistiques :
+  ATK = Attaque ; DEF = Défense ; VIT = Vitesse.
+- Chaque chevalier reçoit 120 points de BASE à répartir librement.
+- Au DÉPART, MINIMUM 20 et MAXIMUM 60 dans CHACUNE des trois stats.
+- La somme de départ des trois stats est exactement 120 PAR CHEVALIER.
+- Chaque statistique effective est plafonnée à 100 après équipements
+  ou éventuelles améliorations.
+- Il n'y a pas de classe obligatoire ni de profil prédéfini imposé.
+Exemples de répartitions de départ possibles :
+  Équilibré         40 ATK / 40 DEF / 40 VIT
+  Offensif         60 ATK / 40 DEF / 20 VIT
+  Défensif         40 ATK / 60 DEF / 20 VIT
+  Guerrier         50 ATK / 50 DEF / 20 VIT
+  Attaquant mobile 60 ATK / 20 DEF / 40 VIT
+  Éclaireur        40 ATK / 20 DEF / 60 VIT
+Ces répartitions sont des EXEMPLES, pas des classes officielles.
+
+02.2 Cœurs
+- Chaque chevalier débute avec 3 cœurs / 3 cœurs maximum individuels.
+- Chaque chevalier ne peut jamais dépasser 5 cœurs de capacité.
+- Chaque expédition contient 1 à 3 BONUS DE CŒUR CACHÉS, pouvant être
+  manqués selon les explorations.
+- Lorsqu'un cœur bonus est découvert, les chevaliers attribuent
+  ensemble le bonus à UN SEUL chevalier ; sa CAPACITÉ MAXIMALE et son
+  NOMBRE ACTUEL de cœurs augmentent chacun de +1, sans dépasser 5.
+- Les cœurs des deux chevaliers ne sont pas une réserve commune.
+- Si un chevalier doit perdre son DERNIER cœur, le jeu déclenche
+  automatiquement le jet de sauvegarde de Vitesse (cf. 03.4).
+- Si la sauvegarde échoue, perte du dernier cœur = GAME OVER IMMÉDIAT
+  pour les DEUX joueurs. Il n'y a pas de continuation à un seul héros.
+
+============================================================
+03. SYSTÈME DE COMBAT ET SAUVEGARDE (VALIDÉ)
+============================================================
+03.1 Formule de duel
+Pour CHAQUE chevalier :
+  BONUS_COMBAT_CHEVALIER = floor((ATK + DEF) / 20)
+  SCORE_CHEVALIER = D20 + BONUS_COMBAT_CHEVALIER
+Pour l'ennemi :
+  BONUS_COMBAT_ENNEMI = floor((ATK_ENNEMI + DEF_ENNEMI) / 20)
+  SCORE_ENNEMI = D20 + BONUS_COMBAT_ENNEMI
+- Les DEUX chevaliers lancent CHACUN un D20 lors du même duel.
+- On prend le meilleur SCORE FINAL des deux chevaliers (pas
+  nécessairement le plus gros D20 brut si leurs bonus diffèrent).
+- On le compare au SCORE FINAL de l'ennemi.
+- Score du duo supérieur : le duel est gagné par les joueurs.
+- Score de l'ennemi supérieur : le duel est perdu par les joueurs.
+- ÉGALITÉ : on relance tous les dés du duel ; l'égalité n'inflige
+  aucune blessure et ne représente pas une victoire.
+- À chaque duel, le duo doit désigner AVANT LES LANCERS quel chevalier
+  sera « exposé » et perdra le cœur en cas de défaite.
+- Chaque défaite du duel coûte exactement UN cœur au chevalier exposé,
+  sauf si une sauvegarde du dernier cœur réussit.
+- Pas de système de tours d'attaque/défense alternés, de dégâts
+  numériques ou de points de magie.
+
+03.2 Ennemis ordinaires
+- Un combat ordinaire est normalement résolu par UN duel opposé.
+- Si le duo gagne : l'ennemi est VAINCU ; le jeu procède au jet de butin
+  de victoire, puis l'expédition continue.
+- Si l'ennemi gagne : le chevalier exposé perd UN cœur, puis
+  l'expédition reprend, sans victoire ni butin de victoire.
+- EXCEPTION : si le coup devait retirer le DERNIER cœur et que la
+  sauvegarde de Vitesse RÉUSSIT, la perte du cœur est annulée et le
+  combat ordinaire doit se résoudre par un NOUVEAU DUEL (sans que
+  l'esquive accorde automatiquement la victoire).
+- Trois niveaux d'ennemis avec caractéristiques aléatoires adaptées à
+  leur nature et bonus de combat imposé :
+    FAIBLE         : D20 +4 ou +5 ; fréquence 30 %
+    INTERMÉDIAIRE : D20 +6 ou +7 ; fréquence 50 %
+    PUISSANT       : D20 +8 ou +9 ; fréquence 20 %
+- Le bonus est calculé via floor((ATK+DEF)/20). Les valeurs ATK/DEF
+  doivent donc être cohérentes avec la classe et le type d'ennemi.
+- Les statistiques exactes ATK, DEF et le BONUS D20 de CHAQUE ennemi
+  sont VISIBLES AVANT LE COMBAT.
+- La répartition 30/50/20 concerne les affrontements ordinaires ;
+  les combats supplémentaires utilisent également ce système de niveaux.
+
+03.3 Boss final
+- Chaque expédition comporte 70 % de chances de se terminer par un
+  BOSS et 30 % par une ÉNIGME FINALE (cf. section 11).
+- Bonus de combat du boss : +8 ou +9, selon sa NATURE et sa DANGEROSITÉ
+  narrative, et NON selon un tirage de fréquence fixe.
+  Exemple : chef de bandits +8 ; dragon particulièrement dangereux +9.
+- ATK, DEF, et bonus D20 du boss affichés AVANT LE PREMIER DUEL.
+- Un boss exige EXACTEMENT TROIS VICTOIRES DE DUEL des chevaliers pour
+  être vaincu : chaque victoire inflige UNE seule blessure, quelle que
+  soit la marge de réussite. Les blessures du boss persistent.
+- Les trois blessures / l'avancement du boss restent VISIBLES.
+- Chaque duel perdu coûte un cœur au chevalier exposé (désigné avant
+  ce duel), sauf sauvegarde du dernier cœur réussie.
+- Le chevalier exposé peut être redéfini AVANT CHAQUE NOUVEAU DUEL.
+- Les égalités sont relancées sans blessure.
+- Intimidation peut réduire le bonus du boss selon ses règles.
+- Gagner contre le boss ne remporte PAS à lui seul l'expédition :
+  il faut ENCORE TROUVER ET RÉCUPÉRER le trésor final.
+
+03.4 Sauvegarde automatique du DERNIER cœur (Vitesse)
+- Tous les chevaliers possèdent cette mécanique SANS APPRENDRE
+  une compétence « Esquive ».
+- Elle se déclenche AUTOMATIQUEMENT UNIQUEMENT si un coup est sur le
+  point de retirer le DERNIER cœur d'un chevalier, contre N'IMPORTE
+  QUEL ENNEMI ORDINAIRE OU BOSS.
+- Aucun jet d'esquive pour les pertes de cœur non fatales.
+- Formule validée :
+    D20 + floor(VIT / 20) >= 19
+- Succès : dernier cœur SAUVÉ, aucune blessure ; le combat CONTINUE.
+  Pour un ennemi ordinaire, relancer un duel : l'esquive ne donne PAS
+  une victoire automatique. Pour un boss, les blessures déjà infligées
+  au boss restent acquises.
+- Échec : dernier cœur retiré, GAME OVER pour les deux chevaliers.
+- Exemples de probabilités de réussite, avec VIT effective :
+    VIT 20–39 : bonus +1 ; 15 % ;
+    VIT 40–59 : bonus +2 ; 20 % ;
+    VIT 60–79 : bonus +3 ; 25 % ;
+    VIT 80–99 : bonus +4 ; 30 % ;
+    VIT 100   : bonus +5 ; 35 %.
+- Cette règle ne consomme pas de compétence et fonctionne aussi dans
+  les combats supplémentaires (vol raté, discrétion ratée, détours).
+
+============================================================
+04. HUIT COMPÉTENCES DU JEU (VALIDÉ)
+============================================================
+04.1 Règles communes
+- HUIT compétences exactement : Crochetage, Vol à la tire,
+  Persuasion, Perception, Pistage, Soin, Discrétion, Intimidation.
+- Chaque chevalier choisit UNE compétence de départ parmi les huit.
+- Chaque chevalier peut posséder AU MAXIMUM TROIS compétences actives.
+- Les nouvelles compétences sont apprises UNIQUEMENT via découvertes
+  et récompenses ; pas de maître de compétences achetable en boutique.
+- Quand une récompense donne une compétence, proposer TROIS compétences
+  tirées aléatoirement. Exclure seulement celles DÉJÀ CONNUES DES DEUX
+  chevaliers ; une compétence connue d'un seul peut donc être proposée.
+- Les deux joueurs choisissent ensemble UNE des trois propositions,
+  puis l'attribuent à UN chevalier qui ne la possède pas et dispose
+  d'une place de compétence. Les autres détails de cas-limites (plus
+  aucune place libre, etc.) restent à préciser avant programmation.
+- Les compétences abandonnées « Berserker », « Protection » et
+  « Esquive » ne font PAS partie de cette liste. La sauvegarde finale
+  liée à Vitesse est une règle commune, pas une compétence achetable.
+
+04.2 Crochetage
+- Jet D20 SANS bonus de statistique, trois difficultés :
+  FACILE >=5 (80 % de réussite), MOYENNE >=10 (55 %),
+  DIFFICILE >=15 (30 %).
+- CHAQUE chevalier connaissant Crochetage a jusqu'à DEUX essais PAR
+  SERRURE ; si les deux le connaissent, maximum QUATRE essais combinés.
+- Coffres verrouillés : il faut utiliser UNE des DEUX recherches
+  communes du lieu pour examiner/découvrir le coffre. Les essais
+  de crochetage sur ce coffre ne consomment AUCUNE recherche de plus.
+- Coffre sans compétence ou après épuisement des tentatives : fermé
+  DÉFINITIVEMENT ; sa récompense est perdue. Pas de forçage ou de clé
+  alternative généralisée qui contournerait cette règle.
+- Portes verrouillées : seulement sur des CHEMINS SECONDAIRES dans
+  des environnements bâtis (châteaux, cryptes, ruines), JAMAIS sur
+  la route principale obligatoire vers le trésor.
+- Essayer de crocheter une porte ne consomme AUCUNE fouille.
+- Porte facultative ouverte : accès à une pièce secondaire et à UNE
+  étape d'expédition supplémentaire ; jamais indispensable à la victoire.
+
+04.3 Vol à la tire
+- Vol possible d'or ou d'un objet EXISTANT porté/possédé par le PNJ :
+  épée, bouclier, armure complète ; pas de création de butin fictif.
+- Test D20 : facile >=5 ; moyen >=10 ; difficile >=15.
+- Un essai par chevalier qui maîtrise la compétence PAR PNJ.
+- Après échec, tirage de trois conséquences ÉQUIPROBABLES (1/3) :
+  (1) personne ne remarque, pas de conséquence ;
+  (2) PNJ méfiant, il ferme toutes ses interactions pour la rencontre ;
+  (3) COMBAT ORDINAIRE IMMÉDIAT supplémentaire.
+- Si ce combat est gagné, l'équipe récupère AUTOMATIQUEMENT l'objet
+  ou l'or précisément visé par la tentative de vol.
+- Si le duel est perdu, perte d'un cœur pour le chevalier exposé,
+  avec sauvegarde Vitesse si dernier cœur.
+- Tout combat provenant du vol s'AJOUTE aux 3–4 combats planifiés.
+
+04.4 Persuasion
+- Test D20, facile >=5, moyen >=10, difficile >=15.
+- Un essai par chevalier qui possède la compétence PAR PNJ.
+- Succès : informations, demandes, négociations et autres effets
+  narratifs appropriés à la discussion.
+- Échec : 50 % refus simple avec conversation toujours ouverte ;
+  50 % PNJ qui coupe TOUTES ses interactions pour la rencontre.
+- Un échec de Persuasion ne crée JAMAIS de combat supplémentaire.
+- Chez un marchand, un succès applique une remise de 20 % sur TOUS
+  LES ACHATS effectués chez CE marchand PENDANT CETTE RENCONTRE,
+  pas uniquement sur un objet, et pas chez les marchands suivants.
+- Difficulté de négociation de chaque marchand : facile, moyenne ou
+  difficile avec 1/3 de probabilité pour chacune.
+- Cette difficulté et le SEUIL D20 nécessaire sont ANNONCÉS AVANT
+  l'essai ; difficulté fixe tout au long de cette rencontre.
+- En cas d'échec, il existe le risque déjà fixé de 50 % que le
+  marchand coupe les échanges, y compris les achats.
+
+04.5 Perception
+- PASSIVE et AUTOMATIQUE, SANS jet de D20.
+- Signale clairement UN élément suspect ou intéressant dans un lieu
+  quand le contexte en contient un.
+- Cela peut aider à trouver un passage, indice, récompense ou cœur.
+- Un élément mis en valeur ne contient PAS forcément un trésor.
+- Posséder Perception n'est JAMAIS une condition obligatoire pour
+  découvrir un butin ou un passage que les recherches ordinaires
+  permettent aussi de trouver.
+- Ne donne AUCUNE recherche supplémentaire.
+
+04.6 Pistage
+- PASSIVE et AUTOMATIQUE, SANS jet de D20, lorsqu'une piste est
+  effectivement rencontrée sur le parcours.
+- Le joueur qui possède Pistage détecte la piste ; les deux joueurs
+  décident ensemble de la suivre ou de l'ignorer.
+- Chaque expédition GÉNÈRE ALÉATOIREMENT 1 OU 2 PISTES de Pistage,
+  EN PLUS des 2–3 accès facultatifs ordinaires.
+- Si un chevalier possède Pistage au départ, la rencontre d'AU MOINS
+  UNE piste sur la route des joueurs est GARANTIE.
+- La même garantie s'applique SI PISTAGE EST APPRIS EN COURS DE
+  PARTIE : une piste rencontrée est garantie dans les étapes
+  RESTANTES, même si la compétence a été acquise tardivement.
+- Une éventuelle DEUXIÈME piste générée peut être manquée selon les
+  chemins choisis.
+- Suivre une piste ajoute EXACTEMENT UNE ÉTAPE FACULTATIVE.
+- Sur cette étape : deux tirages INDÉPENDANTS, 1/3 pour un COMBAT
+  ordinaire BONUS et 50 % pour UNE RÉCOMPENSE D'EXPLORATION CACHÉE
+  bonus à trouver via les fouilles normales ; les deux peuvent coexister.
+- La barre principale n'avance pas pendant ce détour.
+
+04.7 Soin
+- Chaque chevalier possédant Soin peut l'utiliser UNE FOIS par
+  EXPÉDITION, sur lui-même OU sur son compagnon.
+- Effet : +1 CŒUR ACTUEL au bénéficiaire, sans dépasser sa capacité.
+- Possible pendant l'exploration, ENTRE des combats ou ENTRE deux
+  duels d'un boss.
+- Impossible pour annuler une perte du dernier cœur déjà résolue.
+
+04.8 Discrétion
+- Action déclenchée par les joueurs quand une situation d'infiltration
+  le permet.
+- D20 selon difficulté : facile >=5, moyen >=10, difficile >=15.
+- UN essai par chevalier qui maîtrise Discrétion PAR SITUATION,
+  jusqu'à deux essais si les deux ont la compétence et si le contexte
+  permet encore la tentative.
+- Après échec, trois conséquences équiprobables :
+  (1) retraite discrète, sans pénalité ;
+  (2) repéré, itinéraire fermé sans combat ;
+  (3) repéré et COMBAT ORDINAIRE supplémentaire immédiat.
+- Le combat s'ajoute au quota de combats planifiés.
+
+04.9 Intimidation
+- Action à usage limité : UNE utilisation PAR CHEVALIER QUI LA
+  POSSÈDE ET PAR EXPÉDITION.
+- Réduit de TROIS POINTS FIXES le BONUS DE STATISTIQUES de l'ennemi
+  (floor((ATK+DEF)/20)), SANS modifier son D20 lui-même.
+- Effet actif pour TOUT LE RESTE DU COMBAT contre cet ennemi,
+  ordinaire ou boss.
+- Aucune accumulation : si les deux chevaliers l'ont, l'ennemi ne
+  peut jamais perdre davantage que -3 de bonus via Intimidation.
+- Si les deux la connaissent, ils peuvent l'utiliser lors de DEUX
+  affrontements différents, une fois chacun.
+- Activation avant le PREMIER duel, ou ENTRE LES DUELS d'un BOSS,
+  jamais après révélation d'un duel en cours.
+
+============================================================
+05. ÉQUIPEMENT, EMPLACEMENTS ET BONUS (VALIDÉ)
+============================================================
+05.1 Équipement autorisé
+- TROIS emplacements PAR CHEVALIER : UNE ÉPÉE, UN BOUCLIER,
+  UNE ARMURE ENTIÈRE.
+- Aucun accessoire, inventaire de réserve, potion, nourriture ou autre
+  objet consommable à gérer.
+- Un objet nouveau du même emplacement REMPLACE l'ancien ; l'ancien
+  DISPARAÎT immédiatement, sans revente, stockage ni transfert.
+- Après découverte ou combat, les joueurs décident ENSEMBLE d'accepter
+  ou de refuser l'objet et de l'attribuer à UN chevalier. Ils peuvent
+  donc refuser un équipement inférieur.
+- Tous les bonus d'équipement s'ajoutent aux stats de base, avec
+  plafonnement final à 100 par statistique.
+
+05.2 Bonus par qualité (IMPORTANT : armure modifiée récemment)
+                         COMMUN       RARE       LÉGENDAIRE
+ÉPÉE            ATK     +10          +20          +30
+BOUCLIER        DEF     +10          +20          +30
+ARMURE          ATK      +6          +12          +18
+                DEF      +6          +12          +18
+                VIT     +10          +20          +30
+- Les ÉPÉES n'ajoutent que de l'Attaque ; les BOUCLIERS seulement de
+  la Défense ; les ARMURES donnent maintenant les TROIS statistiques.
+- Les équipements légendaires existent en récompenses/découvertes,
+  jamais dans les boutiques ordinaires.
+
+05.3 Rareté des objets tirés comme récompenses
+- Nature de l'équipement : 40 % ÉPÉE, 40 % BOUCLIER, 20 % ARMURE.
+- Qualité : 50 % COMMUN, 35 % RARE, 15 % LÉGENDAIRE.
+- Ces tirages s'appliquent aux équipements trouvés en exploration ou
+  après une victoire ordinaire, selon le système de butin approprié.
+
+============================================================
+06. ÉCONOMIE, BOUTIQUE ET MARCHANDS (VALIDÉ)
+============================================================
+06.1 Bourse de départ et propriété des ressources
+- BOURSE D'OR UNIQUE ET COMMUNE AUX DEUX CHEVALIERS.
+- CHAQUE nouvelle partie commence avec 200 PIÈCES D'OR.
+- L'or trouvé ou remporté par les deux chevaliers rejoint toujours
+  cette bourse commune.
+- Les achats et affectations sont décidés conjointement.
+
+06.2 Prix identiques en ville et pendant l'expédition
+                           PRIX NORMAL    AVEC PERSUASION -20 %
+Épée commune                 30 or         24 or
+Bouclier commun              30 or         24 or
+Armure commune               40 or         32 or
+Épée rare                    60 or         48 or
+Bouclier rare                60 or         48 or
+Armure rare                  80 or         64 or
+- Ensemble complet commun pour un chevalier : 100 or ; deux ensembles
+  complets communs : exactement 200 or.
+- Aucun équipement légendaire ne peut être acheté chez un marchand.
+
+06.3 Boutique de départ en ville
+- Toujours disponibles : épée commune, bouclier commun, armure commune.
+- Tirage 50/50 : soit AUCUN équipement rare, soit UNE catégorie rare
+  parmi épée OU bouclier OU armure, catégorie choisie aléatoirement.
+- Si la catégorie rare est présente, DEUX exemplaires de cet article
+  rare sont en stock.
+- Pas de légendaire en vente.
+
+06.4 Stock des marchands d'expédition
+- Toujours : épée, bouclier et armure COMMUNS.
+- 50 % de chances de proposer UNE catégorie d'équipement RARE ;
+  50 % de chances d'en proposer DEUX catégories rares DISTINCTES.
+- Catégories rares choisies aléatoirement parmi épée/bouclier/armure.
+- DEUX EXEMPLAIRES de chaque catégorie rare proposée.
+- Aucun légendaire vendu. Les prix sont les mêmes qu'en ville.
+- Persuasion : si négociation réussie, -20 % sur TOUS les achats
+  effectués lors de cette rencontre ; difficulté affichée, tirée
+  uniformément entre facile/moyenne/difficile (cf. 04.4).
+
+06.5 Nombre et placement des marchands d'expédition
+- UN marchand est GARANTI sur CHAQUE expédition. Il apparaît sur
+  l'étape PRINCIPALE 5, 6 OU 7, choisie aléatoirement.
+- Avec une probabilité de 50 %, il y a UN DEUXIÈME marchand itinérant
+  supplémentaire ; sinon, aucun deuxième marchand.
+- Quand il existe, le second apparaît sur une étape PRINCIPALE tirée
+  aléatoirement de la DEUXIÈME à l'AVANT-DERNIÈRE incluse, mais
+  STRICTEMENT DIFFÉRENTE de l'étape du marchand garanti.
+- Donc 1 marchand dans 50 % des expéditions et 2 dans les autres 50 %,
+  EN PLUS de la boutique de départ en ville.
+- Un marchand et un COMBAT ORDINAIRE PLANIFIÉ peuvent partager
+  exactement la MÊME étape principale.
+- S'ils partagent une étape, l'ORDRE COMBAT/MARCHAND varie selon le
+  CONTEXTE NARRATIF. Aucune priorité systématique.
+- Cela ne retire jamais le marchand ni le combat du quota prévu.
+
+============================================================
+07. COMBATS ORDINAIRES PLANIFIÉS ET BONUS (VALIDÉ)
+============================================================
+07.1 Nombre total planifié
+- Tirage aléatoire INDÉPENDANT de la longueur de l'expédition :
+  50 % de chances pour exactement TROIS combats ordinaires planifiés ;
+  50 % de chances pour exactement QUATRE.
+- Si trois : ACTE I =1, ACTE II =1, ACTE III =1.
+- Si quatre : ACTE I =1, ACTE II =2, ACTE III =1.
+- Les trois actes ne sont pas affichés aux joueurs.
+
+07.2 Espacement
+- ENTRE DEUX COMBATS ORDINAIRES PLANIFIÉS : au moins UNE ÉTAPE
+  PRINCIPALE SANS COMBAT PLANIFIÉ.
+- S'applique aussi à la frontière entre deux actes.
+- Les combats planifiés ne peuvent donc pas occuper deux étapes
+  principales consécutives.
+- Un marchand peut tout de même apparaître lors d'une étape de combat.
+
+07.3 Combats supplémentaires HORS quota
+- Les combats déclenchés par détours facultatifs, pistes de Pistage,
+  erreurs d'itinéraire, Vol à la tire raté, Discrétion ratée, etc.,
+  sont des COMBATS ORDINAIRES BONUS.
+- Ils S'AJOUTENT aux trois ou quatre combats planifiés ; ils ne
+  remplacent rien et ne sont PAS soumis à l'espacement d'une étape.
+- Le boss final reste distinct lui aussi.
+
+07.4 Butin après victoire contre un ennemi ORDINAIRE
+- Chaque victoire ordinaire (planifiée OU supplémentaire) :
+  2/3 de chances d'obtenir UNE récompense ; 1/3 de n'obtenir AUCUN butin.
+- Conditionnellement à l'obtention d'une récompense :
+  40 % OR ; 40 % ÉQUIPEMENT ; 20 % NOUVELLE COMPÉTENCE.
+- Si OR : entre 30 et 70 pièces, montant aléatoire, bourse commune.
+- Si ÉQUIPEMENT : 40 % épée / 40 % bouclier / 20 % armure ;
+  qualité 50 % commun / 35 % rare / 15 % légendaire.
+- Si COMPÉTENCE : proposer trois compétences au hasard suivant 04.1.
+- Ce jet de butin est distinct des événements et récompenses des
+  détours, même si le combat se déroule dans un détour.
+- Probabilités inconditionnelles : 26,67 % or ; 26,67 % équipement ;
+  13,33 % compétence ; 33,33 % aucun butin.
+
+============================================================
+08. EXPLORATION, FOUILLES ET RÉCOMPENSES (VALIDÉ)
+============================================================
+08.1 Salles et recherches
+- Dans un lieu explorable, présenter entre TROIS et CINQ éléments
+  inspectables selon le contexte : livres, statue, tombeau, coffre,
+  fissure, autel, sarcophage, etc.
+- Le DUO possède AU MAXIMUM DEUX RECHERCHES COMMUNES PAR LIEU,
+  et non deux recherches pour chaque chevalier.
+- Examiner un élément sélectionné consomme UNE recherche, sans D20
+  nécessaire pour une fouille ordinaire.
+- Choisir le mauvais élément peut faire manquer une découverte.
+- Un indice facultatif CACHÉ DANS UN ÉLÉMENT INSPECTABLE nécessite
+  une des deux recherches communes.
+- Une seule inspection peut révéler À LA FOIS un indice facultatif ET
+  une récompense ; elle coûte toujours UNE seule recherche.
+- Les indices principaux garantis et les indices reçus directement
+  lors de dialogues n'utilisent pas ces recherches limitées.
+
+08.2 Récompenses d'exploration principales
+- CHAQUE expédition génère QUATRE À CINQ RÉCOMPENSES D'EXPLORATION
+  CACHÉES dans le parcours de base. Elles peuvent être ratées en
+  choisissant un autre chemin ou en fouillant les mauvais éléments.
+- Elles sont distinctes des cœurs bonus, des butins de combats et des
+  récompenses supplémentaires des détours.
+- Type d'une récompense d'exploration :
+  25 % OR (30–70 pièces) ;
+  35 % NOUVELLE COMPÉTENCE ;
+  40 % ÉQUIPEMENT.
+- Type d'équipement : 40 % épée / 40 % bouclier / 20 % armure.
+- Rareté : 50 % commun / 35 % rare / 15 % légendaire.
+- Apprentissage des compétences conformément aux trois propositions
+  aléatoires et à l'attribution commune (cf. 04.1).
+
+08.3 Accès facultatifs habituels
+- Chaque expédition comporte DEUX À TROIS ACCÈS FACULTATIFS générés,
+  DISTINCTS des 1–2 pistes de Pistage.
+- Dans un château, une crypte ou des ruines, cela peut être une PORTE
+  VERROUILLÉE qui requiert Crochetage.
+- Dans un bois, une montagne ou un marais : grotte, sentier caché,
+  passage rocheux, tunnel de racines, fissure, etc.
+- Certains accès sont visibles ; d'autres doivent être découverts.
+- Perception et Pistage peuvent aider à les repérer lorsque pertinent,
+  sans rendre ces compétences obligatoires pour les passages ordinaires.
+  Exception : une véritable serrure nécessite Crochetage.
+- Ces accès ne sont JAMAIS requis pour finir la quête principale.
+- Chaque accès suivi/ouvert ajoute UNE ÉTAPE FACULTATIVE.
+
+08.4 Probabilités d'une étape facultative
+- Pour CHAQUE étape facultative issue des accès habituels :
+  premier tirage indépendant : 1/3 de chance d'un COMBAT ORDINAIRE BONUS ;
+  second tirage indépendant : 1/2 de chance de générer UNE RÉCOMPENSE
+  D'EXPLORATION CACHÉE BONUS, à TROUVER en fouillant normalement.
+- Les deux événements peuvent survenir dans la même étape.
+- Probabilités conjointes :
+  combat + récompense   = 1/6 (16,67 %) ;
+  combat seul           = 1/6 (16,67 %) ;
+  récompense seule      = 1/3 (33,33 %) ;
+  ni l'un ni l'autre    = 1/3 (33,33 %).
+- Les objets/gains éventuels suivent le tableau d'exploration
+  25 % or, 35 % compétence, 40 % équipement (cf. 08.2).
+- Si le combat est vaincu, son jet de butin 2/3 s'applique AUSSI
+  séparément : combat et exploration peuvent donc récompenser tous deux.
+- Les étapes facultatives peuvent aussi contenir PNJ et indices.
+- Les mêmes deux tirages indépendants sont VALIDÉS pour les pistes
+  de Pistage et les détours d'erreur d'itinéraire (cf. sections 04.6
+  et 09), sauf les particularités de leur déclenchement.
+- Aucune de ces étapes facultatives ne fait avancer la barre de
+  progression principale.
+
+08.5 Bonus de cœur cachés
+- 1 à 3 par expédition, distincts des quatre à cinq récompenses
+  principales et des trésors bonus des chemins annexes.
+- Peut être manqué ; +1 capacité ET +1 cœur actuel pour UN chevalier
+  choisi collectivement, capacité maximale individuelle de 5 cœurs.
+
+============================================================
+09. INDICES, GRANDES BIFURCATIONS ET MAUVAIS ITINÉRAIRES
+============================================================
+09.1 Nature et objectif des indices (VALIDÉ)
+- Le trésor final est choisi aléatoirement au début de chaque partie
+  dans une RÉSERVE GLOBALE COMMUNE de trésors. Son identité n'est
+  pas annoncée directement au départ.
+- Les indices ne doivent PAS seulement révéler l'histoire du trésor :
+  ils servent EN PREMIER LIEU À ORIENTER LES CHOIX DE ROUTE et, plus
+  tard, à DÉDUIRE la cachette du trésor après l'épreuve finale.
+- Les joueurs doivent pouvoir réussir par déduction et non par tirage
+  aveugle d'une direction.
+
+09.2 Trois indices principaux garantis (VALIDÉ)
+- EXACTEMENT TROIS indices principaux dans l'HISTOIRE PRINCIPALE :
+  un au début, un vers le milieu, un vers la fin.
+- Ils sont TOUS GARANTIS, impossibles à manquer.
+- Mode de révélation variable selon l'histoire : PNJ incontournable,
+  inscription sur le chemin, monument ou événement narratif important.
+- Ils ne consomment JAMAIS les deux fouilles limitées d'un lieu.
+- Ils sont automatiquement consignés dans le journal commun.
+- AVANT CHAQUE grand embranchement, les joueurs ont DÉJÀ obtenu les
+  indices pertinents permettant de déduire la bonne route, sans
+  qu'elle leur soit directement indiquée.
+- Les TROIS indices garantis doivent pouvoir être CROISÉS afin de
+  trouver LOGIQUEMENT la cachette finale du trésor. Aucun indice
+  isolé, même le troisième, ne révèle directement la solution.
+- Les indices facultatifs ne sont jamais indispensables à la victoire.
+
+09.3 Indices facultatifs (VALIDÉ)
+- Chaque expédition génère UN À DEUX indices facultatifs supplémentaires,
+  qui PEUVENT être ratés ; ajoutés aux trois garantis.
+- Modes de découverte variés selon scénario : recherches dans les
+  objets/lieux, dialogues et interactions PNJ, détours annexes,
+  pistes de Pistage et autres explorations facultatives.
+- Ils peuvent confirmer une route, préciser la cachette ou enrichir
+  l'histoire du trésor.
+- Ils constituent des DÉCOUVERTES NARRATIVES INDÉPENDANTES : ils ne
+  remplacent JAMAIS une récompense en or, équipement ou compétence et
+  ne modifient aucun quota/probabilité de butin.
+- Un même élément fouillé peut donner un indice facultatif ET une
+  récompense d'exploration.
+- S'ils sont physiquement dissimulés parmi 3–5 éléments inspectables,
+  leur découverte coûte une des deux recherches communes du lieu.
+- Les dialogues livrant un indice sans recherche n'en consomment pas.
+
+09.4 Nombre et présentation des grands embranchements (VALIDÉ)
+- Nombre par expédition : 50 % de chances pour DEUX grands
+  embranchements ; 50 % pour TROIS.
+- À CHAQUE embranchement, tirage indépendant : 50 % de chances
+  d'afficher DEUX ROUTES et 50 % d'afficher TROIS ROUTES.
+- Il existe EXACTEMENT UNE BONNE ROUTE par embranchement ; les autres
+  (une ou deux) sont mauvaises.
+- Chacun de ces choix s'appuie sur les indices DÉJÀ OBTENUS ;
+  le jeu ne révèle pas automatiquement la solution.
+- Les grands embranchements sont DISTINCTS des 2–3 accès facultatifs
+  classiques et des 1–2 pistes de Pistage ; choisir parmi eux fait
+  partie de l'histoire principale.
+
+09.5 Placement des grands embranchements (VALIDÉ)
+- Si TROIS embranchements sont générés : EXACTEMENT UN dans CHACUN
+  des trois actes invisibles.
+- Si DEUX sont générés : ils sont placés dans DEUX ACTES DIFFÉRENTS
+  choisis aléatoirement parmi I/II/III.
+- À l'intérieur de l'acte concerné, l'embranchement est placé à un
+  MOMENT ALÉATOIRE, mais seulement APRÈS que les indices indispensables
+  ont été obtenus.
+- Tout embranchement de l'acte III se produit AVANT le boss ou
+  l'énigme finale.
+- Il faut planifier ensemble les indices et ces carrefours pour
+  garantir que JAMAIS un joueur n'ait à deviner faute de renseignements.
+
+09.6 Mauvaise direction, détour et retour (VALIDÉ)
+- Emprunter une mauvaise route provoque UNE ÉTAPE DE DÉTOUR BONUS
+  en dehors des 9–12 étapes principales.
+- Sur cette unique étape : deux tirages INDÉPENDANTS :
+  1/3 de chances de COMBAT ORDINAIRE SUPPLÉMENTAIRE et 50 % de chances
+  d'UNE RÉCOMPENSE D'EXPLORATION CACHÉE SUPPLÉMENTAIRE, à fouiller.
+- Le détour ne fait PAS avancer la barre de progression principale.
+- Une erreur de route n'entraîne JAMAIS, à elle seule, une défaite
+  automatique ; en revanche, un combat bonus peut coûter le dernier
+  cœur et provoquer normalement un Game Over.
+- Le RETOUR AU MÊME CARREFOUR EST INCLUS DANS L'UNIQUE ÉTAPE DU DÉTOUR ;
+  pas de seconde étape, ni nouveau tirage de risque pour rentrer.
+- La MAUVAISE ROUTE DÉJÀ EMPRUNTÉE EST ÉLIMINÉE DÉFINITIVEMENT
+  parmi les choix de ce carrefour.
+- Les joueurs choisissent de nouveau parmi les routes restantes.
+- Au maximum UNE erreur à un carrefour à deux routes ; au maximum
+  DEUX erreurs à un carrefour à trois routes.
+- La bonne voie finit donc toujours par rester accessible et il
+  n'existe pas de boucle infinie à ce carrefour.
+- Les détours de mauvaises routes s'AJOUTENT au quota d'accès
+  facultatifs classiques et aux pistes supplémentaires de Pistage.
+
+============================================================
+10. JOURNAL D'AVENTURE ET INTERFACE DE PROGRESSION (VALIDÉ)
+============================================================
+10.1 Journal commun automatique
+- JOURNAL D'AVENTURE COMPLET, AUTOMATIQUE ET COMMUN aux deux joueurs.
+- CONSULTABLE À TOUT MOMENT, sans consommer une étape ni une fouille.
+- Il consigne fidèlement ce qui a été DÉCOUVERT OU VÉCU :
+  * trois indices principaux et indices facultatifs réellement trouvés ;
+  * routes choisies, carrefours, mauvaises directions et lieux visités ;
+  * combats, victoires, blessures et événements majeurs ;
+  * rencontres et interactions PNJ / marchands ;
+  * découvertes : or, équipements, compétences, cœurs, objets et trésors
+    secondaires lorsque trouvés.
+- Il n'affiche AUCUNE solution automatique, hypothèse rédigée par le
+  système ni information sur des endroits/indices encore inconnus.
+
+10.2 Organisation hybride
+- VUE PAR DÉFAUT CHRONOLOGIQUE : tous les événements de l'aventure
+  dans l'ordre où ils ont réellement eu lieu.
+- Des ONGLETS / FILTRES permettent de voir les catégories :
+  INDICES ; ITINÉRAIRES ET LIEUX ; COMBATS ; RENCONTRES ;
+  DÉCOUVERTES ET RÉCOMPENSES.
+- L'objectif est de permettre de relire l'histoire ou de retrouver
+  rapidement un indice sans devoir relire tout le journal.
+- Le journal n'affiche pas les trois actes du plan narratif.
+
+10.3 Progression visible
+- Barre visuelle approximative ; pas de compteur exact ni de nombres
+  d'étapes révélés ; actes masqués ; seules étapes principales comptent.
+
+============================================================
+11. DÉNOUEMENT, ÉNIGME, RECHERCHE ET VICTOIRE (VALIDÉ)
+============================================================
+11.1 Type de finale
+- Tirage à chaque expédition : 70 % BOSS FINAL, 30 % ÉNIGME FINALE.
+- Boss : appliquer le système à 3 blessures, +8 ou +9 selon sa nature
+  (cf. 03.3).
+- Énigme finale : exactement TROIS TENTATIVES DE RÉPONSE pour réussir.
+  Si les trois sont ratées, les deux chevaliers obtiennent un ULTIME
+  JET COOPÉRATIF avec leurs bonus de combat habituels :
+    chacun : D20 + floor((ATK+DEF)/20)
+    conserver le meilleur des deux scores
+    réussite si >=22 pour franchir l'épreuve ; échec = expédition perdue.
+- CE SEUIL DE 22 pour sauver l'énigme finale n'est PAS le seuil de 20
+  de la recherche de trésor, ni le seuil de 19 de sauvegarde Vitesse.
+
+11.2 Principe fondamental de victoire
+- VAINCRE LE BOSS ou RÉSOUDRE L'ÉNIGME ne suffit PAS pour gagner.
+- Les joueurs doivent ensuite TROUVER et RÉCUPÉRER EFFECTIVEMENT LE
+  TRÉSOR FINAL au terme de la quête.
+- La salle/cachette finale doit être intelligible grâce à la
+  combinaison des TROIS indices narratifs garantis.
+
+11.3 Fouilles de la salle finale
+- La zone finale propose entre TROIS et CINQ ÉLÉMENTS/CACHETTES
+  inspectables selon son décor.
+- Les DEUX CHEVALIERS disposent de DEUX RECHERCHES COMMUNES INITIALES
+  pour sélectionner les éléments à examiner.
+- Si la bonne cachette est trouvée lors de ces deux fouilles, les
+  joueurs récupèrent le trésor et GAGNENT l'expédition.
+- Si les DEUX FOUILLES ne donnent rien, une ULTIME ÉPREUVE
+  COOPÉRATIVE leur est proposée UNE SEULE FOIS :
+    chacun lance D20 + floor((ATK+DEF)/20) ;
+    on conserve le MEILLEUR SCORE FINAL ;
+    réussite si SCORE >=20 ;
+    échec si SCORE <=19 => EXPÉDITION IMMÉDIATEMENT PERDUE.
+- Si ce jet >=20, une TROISIÈME ET DERNIÈRE RECHERCHE est débloquée.
+  Elle ne trouve PAS automatiquement le trésor : les joueurs doivent
+  encore choisir une cachette, guidés par leurs indices.
+- Si cette troisième recherche n'identifie pas le trésor, il n'existe
+  plus de recherche disponible : l'expédition est PERDUE.
+- Dans tous les cas, il n'y a VICTOIRE que lorsque le trésor est
+  réellement trouvé et récupéré.
+
+============================================================
+12. EXEMPLES D'APPLICATION (ILLUSTRATIONS, NON RÈGLES NOUVELLES)
+============================================================
+12.1 Exemple de stats avec équipement commun complet
+Profil de départ       ATK/DEF/VIT de départ     Stats équipées
+Équilibré              40/40/40                  56/56/50
+Offensif               60/40/20                  76/56/30
+Défensif               40/60/20                  56/76/30
+Éclaireur              40/20/60                  56/36/70
+Car chaque équipement commun complet donne +16 ATK, +16 DEF,
++10 VIT (épée +10 ATK, bouclier +10 DEF, armure +6/+6/+10).
+Bonus de combat : floor((ATK+DEF)/20) ; sauvegarde finale
+D20+floor(VIT/20)>=19.
+
+12.2 Exemple fictif de début d'expédition
+- Ville centrale, 200 or communs ; les joueurs choisissent une
+  destination à la taverne parmi trois quêtes proposées.
+- Ils avancent ensemble sur la route principale et rencontrent
+  une stèle qui donne automatiquement un premier indice.
+- Au premier grand carrefour, cet indice suffit pour distinguer la
+  bonne route ; les choix sont libres, pas de flèche de solution.
+- S'ils se trompent : UNE étape bonus, éventuel combat (1/3), éventuel
+  trésor caché (1/2), retour sans coût et élimination de la route.
+- À une étape principale 5, 6 ou 7 : marchand garanti, éventuellement
+  la même étape qu'un combat ordinaire planifié.
+- En fin de parcours, les chevaliers utilisent les trois indices
+  garantis pour trouver la cachette après l'épreuve finale.
+
+============================================================
+13. POINTS OUVERTS — NE PAS LES PRÉSENTER COMME VALIDÉS
+============================================================
+13.1 Trésors finaux et destinations
+- NOMBRE EXACT de trésors du pool global : des pistes 6, 10 ou 15
+  ont été PROPOSÉES, mais AUCUNE N'A ÉTÉ VALIDÉE.
+- Noms, propriétés narratives, secrets, légendes, cachettes et
+  variantes d'indices propres à chaque trésor : À CRÉER.
+- Liste exacte des ~10 destinations/quêtes de la taverne : À CRÉER.
+- Cartographie détaillée, PNJ, textes d'événements, ennemi-types,
+  illustrations et structure de scénario : À CRÉER.
+
+13.2 Choix techniques et interface
+- Nom officiel du jeu : NON CHOISI.
+- Technologie, architecture, stockage, mode local/en ligne et
+  fonctionnalités réseau : NON DÉCIDÉS POUR CE RPG.
+- Interface de carte/destination évoquée : design précis restant à
+  valider. Les règles de voyage ENSEMBLE priment.
+- Affichage exact des contrôles sur smartphone et de la narration :
+  encore à concevoir, au-delà du journal et de la barre déjà définis.
+- Gestion technique de l'aléatoire, sauvegarde de partie et
+  éventuelle synchronisation des deux joueurs : À CONCEVOIR.
+
+13.3 Cas-limites et équilibrage
+- Définition de plages ATK/DEF individuelles pour chaque catégorie
+  ennemie, tant que les bonus finaux (+4/+5, +6/+7, +8/+9)
+  et la cohérence narrative sont respectés.
+- Catalogue et composition exacte des énigmes finales (trois réponses
+  puis jet coopératif >=22), préparation des indices réutilisables.
+- Conditions particulières si tous les chevaliers connaissent déjà
+  toutes les compétences ou ont leurs trois emplacements remplis.
+- Distribution précise des découvertes obligatoires par rapport aux
+  itinéraires facultatifs, assurant toutes les garanties de pistes
+  de Pistage apprises tardivement.
+- Cas des cœurs bonus découverts quand les deux chevaliers ont déjà
+  atteint la limite individuelle de cinq cœurs.
+- Quantités d'équipements COMMUNS dans le stock des marchands,
+  non fixées au-delà de leur disponibilité garantie.
+- Distribution aléatoire exacte du nombre d'étapes principales 9–12,
+  nombre d'accès facultatifs 2–3, nombre de pistes 1–2, nombre de
+  récompenses cachées 4–5 ou de cœurs 1–3 quand aucune probabilité
+  explicite n'a été approuvée ; NE PAS inventer de 50/50 par défaut.
+- Mesurer/ajuster la durée réelle des parties (30–60 min est un souhait
+  initial à tester, pas une promesse).
+- Priorité et gestion des éléments narratifs quand plusieurs
+  événements se déroulent sur une même étape, sous réserve des règles
+  marchands + combats et ordre narratif déjà validés.
+
+============================================================
+14. ANCIENNES IDÉES OU RÈGLES REMPLACÉES — À NE PAS RÉINTRODUIRE
+============================================================
+- Une idée initiale autorisait les chevaliers à explorer séparément.
+  Elle a été REMPLACÉE : ils voyagent/explorent TOUJOURS ensemble.
+- L'idée de « 2 à 3 portes verrouillées » obligatoires a été
+  REMPLACÉE par « 2 à 3 ACCÈS facultatifs adaptés au biome » ; les
+  portes à serrure n'existent que là où c'est logique.
+- Ancienne armure : bonus Attaque + Défense uniquement. REMPLACÉE
+  par armure +ATK/+DEF/+VIT selon qualité (+6/+6/+10,
+  +12/+12/+20, +18/+18/+30).
+- Les compétences « Berserker », « Protection » et « Esquive » ont été
+  RETIRÉES du roster ; la sauvegarde Vitesse du dernier cœur reste
+  disponible à tous, sans compétence à apprendre.
+- Les étapes facultatives de Pistage ne sont PAS décomptées des
+  2–3 accès facultatifs habituels : elles s'y ajoutent.
+- Les étapes de mauvais itinéraire ne sont PAS décomptées non plus.
+- Les trois actes ne doivent pas être affichés aux joueurs ; une
+  barre de progression approximative existe, mais pas de compteur.
+- Les indices de quête ne se limitent PAS au « lore » du trésor :
+  ils guident le chemin et la déduction de la cachette.
+- Battre le boss / réussir l'énigme finale ne suffit PAS : il faut
+  encore chercher puis récupérer le trésor.
+- Aucun des choix proposés dans une question passée mais NON choisi
+  ne constitue une règle du jeu.
+
+============================================================
+15. INSTRUCTIONS POUR REPRENDRE LA CONCEPTION DANS UNE NOUVELLE DISCUSSION
+============================================================
+1. Lire ce fichier EN ENTIER et le considérer comme la BASE DE RÉFÉRENCE.
+2. Respecter les règles VALIDÉES ; ne pas confondre proposition et décision.
+3. Proposer UNE seule décision de conception à la fois, idéalement
+   deux ou trois options A/B/C avec une recommandation motivée.
+4. Attendre l'accord explicite des joueurs AVANT de considérer une
+   mécanique comme officiellement validée.
+5. Après chaque nouveau choix validé, METTRE À JOUR ce fichier dans
+   le dépôt GitHub : modifier la section concernée, la liste des
+   questions ouvertes et la date/version. Git conserve l'historique.
+6. Garder les chiffres exacts, les exceptions et l'indépendance des
+   tirages ; ne pas simplifier au point de changer une probabilité.
+7. Contrôler la cohérence avant codage : événements garantis
+   réalisables, carrefours toujours solvables, cœurs et plafonds,
+   nombre de combats par acte, montants d'or et succès de duel.
+8. Reprendre sur le PROCHAIN SUJET NON VALIDÉ, notamment la création
+   du pool global de trésors (nombre exact, puis liste et histoire).
+
+FIN DU DOCUMENT — ÉTAT VALIDÉ AU 15 OCTOBRE 2026.
